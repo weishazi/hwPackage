@@ -29,7 +29,8 @@ eDII_calculate <- function(df = df) {
 
   df_edii <- do.call(cbind.data.frame, list)
 
-  df_edii$edii <- apply(df_edii, 1, sum)
+  # df_edii$edii <- apply(df_edii, 1, sum)
+  df_edii$edii <- rowSums(df_edii, na.rm = TRUE)
 
   # df$DII <- df_dii$dii
 

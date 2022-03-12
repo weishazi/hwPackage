@@ -4,7 +4,6 @@ DII_calculate <- function(df = df) {
 
   # load(file = "DII_eDII_ref_databases.RData")
 
-
   DII_names = DII$Food[DII$Food %in% c(colnames(df))]
 
   list <- list()
@@ -17,7 +16,8 @@ DII_calculate <- function(df = df) {
 
   df_dii <- do.call(cbind.data.frame, list)
 
-  df_dii$dii <- apply(df_dii, 1, sum)
+  # df_dii$dii <- apply(df_dii, 1, sum)
+  df_dii$dii <- rowSums(df_dii, na.rm = TRUE)
 
   # df$DII <- df_dii$dii
   #
